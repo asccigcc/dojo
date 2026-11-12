@@ -1,0 +1,16 @@
+solid_cable: &solid_cable
+  adapter: solid_cable
+  connects_to:
+    database:
+      writing: cable
+  polling_interval: 0.1.seconds
+  message_retention: 1.day
+
+development:
+  <<: *solid_cable
+
+test:
+  adapter: test
+
+production:
+  <<: *solid_cable
