@@ -1,0 +1,11 @@
+<%= turbo_frame_tag "solution" do %>
+  <div class="mt-3 space-y-3">
+    <pre class="overflow-x-auto rounded-md bg-slate-900 p-3 font-mono text-xs text-slate-100"><%= @exercise.solution_code %></pre>
+    <% if @exercise.notes_md.present? %>
+      <div class="prose-dojo text-sm">
+        <h3><%= t(".notes") %></h3>
+        <%= MarkdownRenderer.render(@exercise.notes_md) %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

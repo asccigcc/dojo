@@ -1,0 +1,13 @@
+<article class="card flex flex-col gap-3">
+  <p class="text-xs font-semibold uppercase tracking-wide text-slate-500"><%= t("kinds.#{kind}") %></p>
+  <% if pick %>
+    <div>
+      <h2 class="text-lg font-semibold text-slate-900"><%= exercise.title %></h2>
+      <p class="text-sm text-slate-500"><%= t("categories.#{exercise.category}", default: exercise.category.humanize) %></p>
+    </div>
+    <p class="text-sm text-slate-600"><%= t(".reasons.#{pick.reason}") %></p>
+    <div><%= link_to t(".start"), exercise_path(exercise), class: "btn-primary" %></div>
+  <% else %>
+    <p class="text-sm text-slate-500"><%= t("home.show.nothing_due") %></p>
+  <% end %>
+</article>

@@ -1,0 +1,46 @@
+<% exercise = @page.exercise %>
+<% content_for :title, exercise.title %>
+<%= turbo_stream_from current_user, exercise %>
+
+<header class="mb-4">
+  <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">
+    <%= t("kinds.#{exercise.kind}") %> · <%= t("categories.#{exercise.category}", default: exercise.category.humanize) %>
+  </p>
+  <h1 class="text-2xl font-semibold"><%= exercise.title %></h1>
+</header>
+
+<div class="grid gap-6 lg:grid-cols-2">
+  <div class="space-y-4">
+    <article class="card prose-dojo"><%= MarkdownRenderer.render(exercise.description_md) %></article>
+    <%= render PartsComponent.new(page: @page) %>
+    <% if exercise.warmup? %>
+      <details class="card">
+        <summary class="cursor-pointer text-sm font-medium text-slate-600"><%= t(".prelude") %></summary>
+        <p class="mt-2 text-xs text-slate-500"><%= t(".warmup_rules") %></p>
+        <pre class="mt-2 overflow-x-auto rounded-md bg-slate-900 p-3 font-mono text-xs text-slate-100"><%= exercise.prelude_code %></pre>
+      </details>
+    <% end %>
+  </div>
+
+  <div class="space-y-4">
+    <%= form_with url: exercise_submissions_path(exercise), scope: :submission, class: "card space-y-3",
+          data: { controller: "editor", editor_starter_value: exercise.starter_code } do |form| %>
+      <div data-editor-target="mount" class="overflow-hidden rounded-md border border-slate-300 font-mono text-sm"></div>
+      <%= form.text_area :code, value: @page.editor_code, rows: 16, spellcheck: false,
+            class: "w-full rounded-md border border-slate-300 p-2 font-mono text-sm",
+            data: { editor_target: "input" }, aria: { label: t(".code_label") } %>
+      <div class="flex items-center justify-between">
+        <span class="text-xs text-slate-500">
+          <%= exercise.problem? ? t(".runs_part", number: @page.current_part) : t(".runs_warmup") %>
+        </span>
+        <div class="flex gap-2">
+          <button type="button" class="btn-secondary" data-action="editor#reset"><%= t(".reset") %></button>
+          <%= form.button t(".run"), type: "submit", class: "btn-primary", title: t(".run_shortcut") %>
+        </div>
+      </div>
+    <% end %>
+    <%= render ResultsPanelComponent.new(submission: @page.latest_submission) %>
+    <%= render SolutionGateComponent.new(page: @page) %>
+    <%= render SubmissionHistoryComponent.new(submissions: @page.submissions) %>
+  </div>
+</div>

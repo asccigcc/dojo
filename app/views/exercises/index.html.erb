@@ -1,0 +1,27 @@
+<% content_for :title, t(".heading") %>
+<h1 class="mb-6 text-2xl font-semibold"><%= t(".heading") %></h1>
+
+<% @catalog.sections.each do |section| %>
+  <section class="mb-8">
+    <h2 class="mb-3 text-lg font-semibold"><%= t("kinds.#{section.kind}_plural") %></h2>
+    <div class="grid gap-4 md:grid-cols-2">
+      <% section.groups.each do |category, items| %>
+        <div class="card">
+          <h3 class="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">
+            <%= t("categories.#{category}", default: category.humanize) %>
+          </h3>
+          <ul class="divide-y divide-slate-100 text-sm">
+            <% items.each do |item| %>
+              <li class="flex items-center justify-between gap-2 py-1.5">
+                <%= link_to item.exercise.title, exercise_path(item.exercise), class: "text-slate-800 hover:text-indigo-700" %>
+                <% if item.progress&.last_result %>
+                  <%= render StatusBadgeComponent.new(status: item.progress.last_result) %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    </div>
+  </section>
+<% end %>

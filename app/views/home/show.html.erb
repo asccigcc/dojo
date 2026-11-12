@@ -1,1 +1,22 @@
-<h1 class="text-2xl font-semibold"><%= t(".heading") %></h1>
+<% content_for :title, t(".heading") %>
+<h1 class="mb-1 text-2xl font-semibold"><%= t(".heading") %></h1>
+<p class="mb-6 text-sm text-slate-500"><%= t(".subheading") %></p>
+
+<div class="grid gap-4 md:grid-cols-2">
+  <%= render ExerciseCardComponent.new(pick: @today.warmup, kind: "warmup") %>
+  <%= render ExerciseCardComponent.new(pick: @today.problem, kind: "problem") %>
+</div>
+
+<% if (done = @today.done_today).any? %>
+  <section class="mt-8">
+    <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500"><%= t(".done_today") %></h2>
+    <ul class="space-y-1 text-sm">
+      <% done.each do |progress| %>
+        <li>
+          <%= link_to progress.exercise.title, exercise_path(progress.exercise), class: "text-indigo-700 hover:underline" %>
+          <span class="text-slate-400"><%= t(".next_review", date: l(progress.next_review_at.to_date, format: :long)) %></span>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
