@@ -1,0 +1,14 @@
+<% content_for :title, t(".title") %>
+<div class="mx-auto mt-16 max-w-sm card">
+  <h1 class="mb-1 text-xl font-semibold"><%= t(".heading") %></h1>
+  <p class="mb-4 text-sm text-slate-500"><%= t(".hint") %></p>
+  <%= form_with scope: :session, url: session_path, class: "space-y-3" do |form| %>
+    <%= form.label :name, t(".name"), class: "block text-sm font-medium" %>
+    <%= form.text_field :name, value: @user.name, autofocus: true, required: true, maxlength: 40,
+          class: "w-full rounded-md border border-slate-300 px-3 py-2 focus:border-indigo-500 focus:outline-none" %>
+    <% @user.errors.full_messages.each do |message| %>
+      <p class="text-sm text-rose-700"><%= message %></p>
+    <% end %>
+    <%= form.submit t(".submit"), class: "btn-primary w-full justify-center" %>
+  <% end %>
+</div>

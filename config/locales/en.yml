@@ -1,3 +1,26 @@
 en:
   app:
     name: "Dojo"
+  layouts:
+    nav:
+      today: "Today"
+      catalog: "Catalog"
+      sign_out: "Sign out"
+  sessions:
+    new:
+      title: "Sign in"
+      heading: "Enter the dojo"
+      hint: "Just a username. No password: this app only runs on your machine."
+      name: "Username"
+      submit: "Sign in"
+    create:
+      signed_in: "Welcome, %{name}."
+    destroy:
+      signed_out: "Signed out."
+  home:
+    show:
+      heading: "Today's practice"
+  activerecord:
+    attributes:
+      user:
+        name: "Username"
