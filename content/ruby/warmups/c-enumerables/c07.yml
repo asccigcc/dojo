@@ -1,0 +1,10 @@
+---
+slug: warmup-c07
+rep: C7
+set: C
+category: enumerables
+position: 27
+title: C7 · Unique drugs, sorted
+prompt: Unique drugs, sorted.
+expected: "%w[atorvastatin lisinopril metformin]"
+answer: FILLS.map { |f| f[:drug] }.uniq.sort

@@ -1,0 +1,11 @@
+---
+slug: warmup-d04
+rep: D4
+set: D
+category: strings
+position: 34
+title: D4 · Is "105" all digits
+prompt: Is `"105"` all digits? Is `"10a"`? (Use a regex.)
+returns: Return `[all_digits_105, all_digits_10a]`.
+expected: "[true, false]"
+answer: '["105".match?(/\A\d+\z/), "10a".match?(/\A\d+\z/)]'

@@ -1,0 +1,7 @@
+---
+slug: 06-patient-ledger
+title: Patient Balance Ledger
+category: ledgers
+position: 6
+code_path: work/06_patient_ledger.rb
+test_path: tests/06_patient_ledger_test.rb

@@ -1,0 +1,10 @@
+---
+slug: warmup-c03
+rep: C3
+set: C
+category: enumerables
+position: 23
+title: C3 · NUMS in chunks of 2
+prompt: "`NUMS` in chunks of 2."
+expected: "[[5, 3], [8, 1], [9, 2]]"
+answer: NUMS.each_slice(2).to_a

@@ -1,0 +1,13 @@
+---
+slug: warmup-f09
+rep: F9
+set: F
+category: sets
+position: 59
+title: F9 · Drug → number of unique patients, using a hash whose...
+prompt: Drug → **number of unique patients**, using a hash whose default value is a new Set.
+expected: '{ "metformin" => 3, "lisinopril" => 1, "atorvastatin" => 1 }'
+answer: |-
+  unique = Hash.new { |h, k| h[k] = Set.new }
+  FILLS.each { |f| unique[f[:drug]] << f[:patient] }
+  unique.transform_values(&:size)

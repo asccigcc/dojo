@@ -1,0 +1,10 @@
+---
+slug: warmup-a09
+rep: A9
+set: A
+category: hashes
+position: 9
+title: A9 · Does any fill belong to "dee"
+prompt: Does any fill belong to `"dee"`?
+expected: 'false'
+answer: FILLS.any? { |f| f[:patient] == "dee" }

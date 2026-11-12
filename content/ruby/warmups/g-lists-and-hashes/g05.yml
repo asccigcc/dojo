@@ -1,0 +1,13 @@
+---
+slug: warmup-g05
+rep: G5
+set: G
+category: lists-and-hashes
+position: 65
+title: G5 · Build a 3×3 grid of zeros where each row is its own...
+prompt: Build a 3×3 grid of zeros where each row is its own array, then set row 1, column 2 to 7.
+expected: "[[0, 0, 0], [0, 0, 7], [0, 0, 0]]"
+answer: |-
+  grid = Array.new(3) { Array.new(3, 0) }
+  grid[1][2] = 7
+  grid

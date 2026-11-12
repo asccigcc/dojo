@@ -1,0 +1,14 @@
+---
+slug: warmup-e10
+rep: E10
+set: E
+category: structs-and-patterns
+position: 50
+title: E10 · Make a Set of 1 and 2, add 2 again
+prompt: Make a `Set` of 1 and 2, add 2 again. Size? Does it include 3?
+returns: Return `[size, includes_3]`.
+expected: "[2, false]"
+answer: |-
+  set = Set[1, 2]
+  set << 2
+  [set.size, set.include?(3)]

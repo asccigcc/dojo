@@ -1,0 +1,15 @@
+---
+slug: warmup-d05
+rep: D5
+set: D
+category: strings
+position: 35
+title: D5 · Parse LINES into [ts, member, type], skipping bad lines...
+prompt: Parse `LINES` into `[ts, member, type]`, skipping bad lines (it needs exactly 3 fields and an integer ts).
+expected: '[[100, "m1", "call"], [105, "m2", "sms"], [90, "m2", "call"]]'
+answer: |-
+  parsed = LINES.filter_map do |line|
+    ts, member, type = fields = line.split(",", -1).map(&:strip)
+    [Integer(ts), member, type] if fields.size == 3 && ts.match?(/\A\d+\z/)
+  end
+  parsed

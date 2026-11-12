@@ -1,0 +1,10 @@
+---
+slug: warmup-c06
+rep: C6
+set: C
+category: enumerables
+position: 26
+title: C6 · Combine %w[a b c] and [1, 2, 3] into a hash
+prompt: Combine `%w[a b c]` and `[1, 2, 3]` into a hash.
+expected: '{ "a" => 1, "b" => 2, "c" => 3 }'
+answer: "%w[a b c].zip([1, 2, 3]).to_h"

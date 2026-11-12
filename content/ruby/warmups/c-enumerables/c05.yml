@@ -1,0 +1,10 @@
+---
+slug: warmup-c05
+rep: C5
+set: C
+category: enumerables
+position: 25
+title: C5 · Fill id → patient, using each_with_object
+prompt: Fill id → patient, using `each_with_object`.
+expected: '{ "rx1" => "ana", "rx2" => "ben", "rx3" => "ana", "rx4" => "cy", "rx5" => "ben" }'
+answer: FILLS.each_with_object({}) { |f, h| h[f[:id]] = f[:patient] }

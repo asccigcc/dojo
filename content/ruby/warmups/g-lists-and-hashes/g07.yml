@@ -1,0 +1,10 @@
+---
+slug: warmup-g07
+rep: G7
+set: G
+category: lists-and-hashes
+position: 67
+title: G7 · Read the payer from PLAN in one safe call for "m1", then...
+prompt: Read the payer from `PLAN` in one safe call for `"m1"`, then for `"m9"` (which doesn't exist).
+expected: '["Aetna", nil]'
+answer: '[PLAN.dig("m1", :coverage, :payer), PLAN.dig("m9", :coverage, :payer)]'

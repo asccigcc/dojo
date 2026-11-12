@@ -1,0 +1,11 @@
+---
+slug: warmup-e06
+rep: E6
+set: E
+category: structs-and-patterns
+position: 46
+title: E6 · (31..60) covers 45
+prompt: "`(31..60)` covers 45? Endless `(91..)` covers 500? `(1...10)` covers 10?"
+returns: Return the three answers as one array.
+expected: "[true, true, false]"
+answer: "[(31..60).cover?(45), (91..).cover?(500), (1...10).cover?(10)]"

@@ -1,0 +1,10 @@
+---
+slug: warmup-a02
+rep: A2
+set: A
+category: hashes
+position: 2
+title: A2 · Same count, but build it with Hash.new(0)
+prompt: Same count, but build it with `Hash.new(0)`.
+expected: '{ "call" => 3, "sms" => 2, "email" => 1 }'
+answer: WORDS.each_with_object(Hash.new(0)) { |w, h| h[w] += 1 }

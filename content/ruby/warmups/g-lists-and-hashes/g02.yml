@@ -1,0 +1,10 @@
+---
+slug: warmup-g02
+rep: G2
+set: G
+category: lists-and-hashes
+position: 62
+title: G2 · Insert 3 into [1, 2, 4] so it ends up sorted
+prompt: Insert `3` into `[1, 2, 4]` so it ends up sorted.
+expected: "[1, 2, 3, 4]"
+answer: "[1, 2, 4].insert(2, 3)"

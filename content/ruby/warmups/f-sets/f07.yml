@@ -1,0 +1,14 @@
+---
+slug: warmup-f07
+rep: F7
+set: F
+category: sets
+position: 57
+title: F7 · All patients who are NOT on lisinopril (one operator)
+prompt: 'All patients who are NOT on lisinopril (one operator). Then: are lisinopril patients a subset of all patients?'
+returns: Return `[not_on_lisinopril, lisinopril_is_subset]`.
+expected: '[Set["ana", "cy"], true]'
+answer: |-
+  patients = FILLS.map { |f| f[:patient] }.to_set
+  on_drug = ->(drug) { FILLS.select { |f| f[:drug] == drug }.map { |f| f[:patient] }.to_set }
+  [patients - on_drug.("lisinopril"), on_drug.("lisinopril") <= patients]

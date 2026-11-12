@@ -1,0 +1,10 @@
+---
+slug: warmup-d09
+rep: D9
+set: D
+category: strings
+position: 39
+title: D9 · Keys starting with "m1:" from %w[m1:risk m2:risk...
+prompt: Keys starting with `"m1:"` from `%w[m1:risk m2:risk m1:plan]`, sorted.
+expected: "%w[m1:plan m1:risk]"
+answer: '%w[m1:risk m2:risk m1:plan].select { |k| k.start_with?("m1:") }.sort'

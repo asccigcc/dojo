@@ -1,0 +1,10 @@
+---
+slug: warmup-b07
+rep: B7
+set: B
+category: sorting
+position: 17
+title: B7 · Id of the most expensive fill
+prompt: Id of the most expensive fill.
+expected: '"rx3"'
+answer: FILLS.max_by { |f| f[:cents] }[:id]

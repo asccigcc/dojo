@@ -1,0 +1,11 @@
+---
+slug: warmup-d03
+rep: D3
+set: D
+category: strings
+position: 33
+title: D3 · Parse "abc" as an integer without raising, then parse "105"
+prompt: Parse `"abc"` as an integer **without raising**, then parse `"105"`.
+returns: Return `[parsed_abc, parsed_105]`. Parsing `"abc"` must not raise.
+expected: "[nil, 105]"
+answer: '[Integer("abc", exception: false), Integer("105")]'

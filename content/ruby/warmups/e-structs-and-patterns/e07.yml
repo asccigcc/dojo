@@ -1,0 +1,12 @@
+---
+slug: warmup-e07
+rep: E7
+set: E
+category: structs-and-patterns
+position: 47
+title: E7 · Given {"0-30"=>0..30, "31-60"=>31..60, "61-90"=>61..90,...
+prompt: Given `{"0-30"=>0..30, "31-60"=>31..60, "61-90"=>61..90, "90+"=>91..}`, which bucket holds 45?
+expected: '"31-60"'
+answer: |-
+  buckets = { "0-30" => 0..30, "31-60" => 31..60, "61-90" => 61..90, "90+" => 91.. }
+  buckets.find { |_, range| range.cover?(45) }&.first

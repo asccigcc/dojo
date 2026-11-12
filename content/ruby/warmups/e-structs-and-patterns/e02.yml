@@ -1,0 +1,14 @@
+---
+slug: warmup-e02
+rep: E2
+set: E
+category: structs-and-patterns
+position: 42
+title: E2 · Define Data Pt(:name)
+prompt: Define `Data` `Pt(:name)`. Make a copy with a new name. What happens if you try to change `name`?
+returns: Return `[copy_name, error_class]`. Capture the error instead of raising, e.g. `begin ... rescue => e; e.class end`.
+note: "`Data` is immutable: there is no setter, so assigning raises `NoMethodError`."
+expected: '["b", NoMethodError]'
+answer: |-
+  Pt = Data.define(:name)
+  [Pt.new(name: "a").with(name: "b").name, (Pt.new(name: "a").instance_eval { self.name = "b" } rescue $!.class)]

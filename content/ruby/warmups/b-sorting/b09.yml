@@ -1,0 +1,11 @@
+---
+slug: warmup-b09
+rep: B9
+set: B
+category: sorting
+position: 19
+title: B9 · Sum of NUMS, and the average rounded to 2 decimals
+prompt: Sum of `NUMS`, and the average rounded to 2 decimals.
+returns: Return `[sum, average]`.
+expected: "[28, 4.67]"
+answer: "[NUMS.sum, NUMS.sum.fdiv(NUMS.size).round(2)]"

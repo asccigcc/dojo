@@ -1,0 +1,11 @@
+---
+slug: warmup-e03
+rep: E3
+set: E
+category: structs-and-patterns
+position: 43
+title: E3 · Turn Rx.new("rx1", 3) into a hash
+prompt: Turn `Rx.new("rx1", 3)` into a hash.
+setup: Rx = Struct.new(:id, :left)
+expected: '{ id: "rx1", left: 3 }'
+answer: Rx.new("rx1", 3).to_h

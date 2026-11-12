@@ -1,0 +1,10 @@
+---
+slug: warmup-a06
+rep: A6
+set: A
+category: hashes
+position: 6
+title: A6 · Fill id → day
+prompt: Fill id → day.
+expected: '{ "rx1" => 5, "rx2" => 2, "rx3" => 9, "rx4" => 2, "rx5" => 7 }'
+answer: FILLS.to_h { |f| [f[:id], f[:day]] }

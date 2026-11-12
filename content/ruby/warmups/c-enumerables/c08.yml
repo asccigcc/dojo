@@ -1,0 +1,11 @@
+---
+slug: warmup-c08
+rep: C8
+set: C
+category: enumerables
+position: 28
+title: C8 · The FIRST fill on day 2 (its id), then ALL fills on day...
+prompt: The FIRST fill on day 2 (its id), then ALL fills on day 2 (their ids).
+returns: Return `[first_id, all_ids]`.
+expected: '["rx2", %w[rx2 rx4]]'
+answer: "[FILLS.find { |f| f[:day] == 2 }[:id], FILLS.select { |f| f[:day] == 2 }.map { |f| f[:id] }]"

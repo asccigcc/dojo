@@ -1,0 +1,7 @@
+---
+slug: 04-care-team-assignment
+title: Care Team Task Assignment
+category: queues
+position: 4
+code_path: work/04_care_team_assignment.rb
+test_path: tests/04_care_team_assignment_test.rb

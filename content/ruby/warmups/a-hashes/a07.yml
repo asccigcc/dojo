@@ -1,0 +1,11 @@
+---
+slug: warmup-a07
+rep: A7
+set: A
+category: hashes
+position: 7
+title: A7 · Turn totals into dollar strings (keep the keys)
+prompt: Turn `totals` into dollar strings (keep the keys).
+setup: totals = FILLS.each_with_object(Hash.new(0)) { |f, h| h[f[:patient]] += f[:cents] }
+expected: '{ "ana" => "$27.00", "ben" => "$20.00", "cy" => "$12.00" }'
+answer: totals.transform_values { |c| format("$%.2f", c / 100.0) }

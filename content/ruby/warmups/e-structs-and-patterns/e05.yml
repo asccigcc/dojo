@@ -1,0 +1,13 @@
+---
+slug: warmup-e05
+rep: E5
+set: E
+category: structs-and-patterns
+position: 45
+title: 'E5 · Half-open overlap check (a lambda): does [540,570)...'
+prompt: 'Half-open overlap check (a lambda): does `[540,570)` overlap `[570,600)`? Does it overlap `[555,585)`?'
+returns: Return `[overlaps_570_600, overlaps_555_585]`.
+expected: "[false, true]"
+answer: |-
+  overlap = ->(a1, a2, b1, b2) { a1 < b2 && b1 < a2 }
+  [overlap.(540, 570, 570, 600), overlap.(540, 570, 555, 585)]

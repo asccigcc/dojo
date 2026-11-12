@@ -1,0 +1,10 @@
+---
+slug: warmup-b08
+rep: B8
+set: B
+category: sorting
+position: 18
+title: B8 · Smallest and largest of NUMS in one call
+prompt: Smallest and largest of `NUMS` in one call.
+expected: "[1, 9]"
+answer: NUMS.minmax

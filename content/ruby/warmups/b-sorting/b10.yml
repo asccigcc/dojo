@@ -1,0 +1,10 @@
+---
+slug: warmup-b10
+rep: B10
+set: B
+category: sorting
+position: 20
+title: B10 · Split NUMS into evens and odds in one call
+prompt: Split `NUMS` into evens and odds in one call.
+expected: "[[8, 2], [5, 3, 1, 9]]"
+answer: NUMS.partition(&:even?)

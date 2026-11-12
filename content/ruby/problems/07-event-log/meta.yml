@@ -1,0 +1,7 @@
+---
+slug: 07-event-log
+title: Member Engagement Event Log
+category: parsing
+position: 7
+code_path: work/07_event_log.rb
+test_path: tests/07_event_log_test.rb

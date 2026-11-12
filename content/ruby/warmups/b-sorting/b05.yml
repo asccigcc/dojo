@@ -1,0 +1,10 @@
+---
+slug: warmup-b05
+rep: B5
+set: B
+category: sorting
+position: 15
+title: B5 · Top 2 words only (just the words)
+prompt: Top 2 words only (just the words).
+expected: "%w[call sms]"
+answer: WORDS.tally.sort_by { |w, n| [-n, w] }.first(2).map(&:first)

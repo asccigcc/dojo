@@ -1,0 +1,15 @@
+---
+slug: warmup-g08
+rep: G8
+set: G
+category: lists-and-hashes
+position: 68
+title: 'G8 · Patient → (drug → count): a hash whose default value is...'
+prompt: 'Patient → (drug → count): a hash whose default value is a counting hash.'
+expected: |-
+  { "ana" => { "metformin" => 1, "atorvastatin" => 1 },
+                      "ben" => { "lisinopril" => 1, "metformin" => 1 }, "cy" => { "metformin" => 1 } }
+answer: |-
+  nested = Hash.new { |h, k| h[k] = Hash.new(0) }
+  FILLS.each { |f| nested[f[:patient]][f[:drug]] += 1 }
+  nested

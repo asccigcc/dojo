@@ -1,0 +1,12 @@
+---
+slug: warmup-c10
+rep: C10
+set: C
+category: enumerables
+position: 30
+title: C10 · Running total of NUMS
+prompt: Running total of `NUMS`.
+expected: "[5, 8, 16, 17, 26, 28]"
+answer: |-
+  running = 0
+  NUMS.map { |n| running += n }

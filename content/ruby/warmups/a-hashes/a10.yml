@@ -1,0 +1,15 @@
+---
+slug: warmup-a10
+rep: A10
+set: A
+category: hashes
+position: 10
+title: A10 · [] vs fetch
+prompt: '**`[]` vs `fetch`.** `totals` (from A5) has **string** keys and was built with `Hash.new(0)`. Predict, then run: (a) `totals["ana"]` (b) `totals[:ana]` (c) `totals.fetch("dee", 0)` (d) `totals.fetch("dee")` (e) `totals.fetch(:ana)`. Why does (b) return 0 instead of failing?'
+returns: Return the five results as one array `[a, b, c, d, e]`. For (d) and (e), return the exception class instead of raising, e.g. `(totals.fetch("dee") rescue $!.class)`.
+note: 'The default value hides the wrong key type in (b). `fetch` ignores the default, so the bug shows up. Rule: `[]` when missing is normal, `fetch` when missing is a bug.'
+setup: totals = FILLS.each_with_object(Hash.new(0)) { |f, h| h[f[:patient]] += f[:cents] }
+expected: "[2700, 0, 0, KeyError, KeyError]"
+answer: |-
+  [totals["ana"], totals[:ana], totals.fetch("dee", 0),
+               (totals.fetch("dee") rescue $!.class), (totals.fetch(:ana) rescue $!.class)]

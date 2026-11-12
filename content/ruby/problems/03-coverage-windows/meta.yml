@@ -1,0 +1,7 @@
+---
+slug: 03-coverage-windows
+title: Insurance Coverage Windows
+category: intervals
+position: 3
+code_path: work/03_coverage_windows.rb
+test_path: tests/03_coverage_windows_test.rb

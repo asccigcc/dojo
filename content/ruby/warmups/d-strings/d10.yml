@@ -1,0 +1,11 @@
+---
+slug: warmup-d10
+rep: D10
+set: D
+category: strings
+position: 40
+title: D10 · Pad 42 to 5 digits; capitalize "metformin"; turn "rx1"...
+prompt: Pad 42 to 5 digits; capitalize `"metformin"`; turn `"rx1"` into a symbol.
+returns: Return `[padded, capitalized, symbol]`.
+expected: '["00042", "Metformin", :rx1]'
+answer: '[format("%05d", 42), "metformin".capitalize, "rx1".to_sym]'

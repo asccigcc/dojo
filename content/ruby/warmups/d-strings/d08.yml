@@ -1,0 +1,10 @@
+---
+slug: warmup-d08
+rep: D8
+set: D
+category: strings
+position: 38
+title: D8 · Ids A1 to A3
+prompt: Ids `A1` to `A3`.
+expected: "%w[A1 A2 A3]"
+answer: (1..3).map { |n| "A#{n}" }

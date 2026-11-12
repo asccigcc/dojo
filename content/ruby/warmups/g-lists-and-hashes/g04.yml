@@ -1,0 +1,11 @@
+---
+slug: warmup-g04
+rep: G4
+set: G
+category: lists-and-hashes
+position: 64
+title: 'G4 · From NUMS: elements at index 1 to 3, the last 2 (using a...'
+prompt: 'From `NUMS`: elements at index 1 to 3, the last 2 (using a negative index), the first 2, the last 2 (by method name).'
+returns: Return the four slices as one array.
+expected: "[[3, 8, 1], [9, 2], [5, 3], [9, 2]]"
+answer: "[NUMS[1..3], NUMS[-2..], NUMS.first(2), NUMS.last(2)]"

@@ -1,0 +1,7 @@
+---
+slug: 02-kv-store-transactions
+title: Member Attribute Store with Transactions
+category: transactions
+position: 2
+code_path: work/02_kv_store_transactions.rb
+test_path: tests/02_kv_store_transactions_test.rb

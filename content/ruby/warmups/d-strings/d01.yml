@@ -1,0 +1,10 @@
+---
+slug: warmup-d01
+rep: D1
+set: D
+category: strings
+position: 31
+title: D1 · Split " 105 , m2 , sms " by comma and trim each part
+prompt: Split `" 105 , m2 , sms "` by comma and trim each part.
+expected: "%w[105 m2 sms]"
+answer: '" 105 , m2 , sms ".split(",").map(&:strip)'

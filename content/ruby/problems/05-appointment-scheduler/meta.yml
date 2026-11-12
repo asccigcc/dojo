@@ -1,0 +1,7 @@
+---
+slug: 05-appointment-scheduler
+title: Provider Appointment Scheduler
+category: scheduling
+position: 5
+code_path: work/05_appointment_scheduler.rb
+test_path: tests/05_appointment_scheduler_test.rb

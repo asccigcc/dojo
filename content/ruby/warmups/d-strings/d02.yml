@@ -1,0 +1,11 @@
+---
+slug: warmup-d02
+rep: D2
+set: D
+category: strings
+position: 32
+title: D2 · Split "a,b," by comma normally, then keeping the empty...
+prompt: Split `"a,b,"` by comma normally, then keeping the empty last field.
+returns: Return `[normal_split, keeping_empty]`.
+expected: '[%w[a b], ["a", "b", ""]]'
+answer: '["a,b,".split(","), "a,b,".split(",", -1)]'

@@ -1,0 +1,12 @@
+---
+slug: warmup-f04
+rep: F4
+set: F
+category: sets
+position: 54
+title: F4 · First number in SEQ that appears for the second time...
+prompt: First number in `SEQ` that appears for the second time (one pass, using a "seen" set).
+expected: '1'
+answer: |-
+  seen = Set.new
+  SEQ.find { |n| !seen.add?(n) }

@@ -1,0 +1,10 @@
+---
+slug: warmup-a01
+rep: A1
+set: A
+category: hashes
+position: 1
+title: A1 · Count each word in WORDS (one method)
+prompt: Count each word in `WORDS` (one method).
+expected: '{ "call" => 3, "sms" => 2, "email" => 1 }'
+answer: WORDS.tally

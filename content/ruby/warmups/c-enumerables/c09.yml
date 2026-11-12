@@ -1,0 +1,10 @@
+---
+slug: warmup-c09
+rep: C9
+set: C
+category: enumerables
+position: 29
+title: 'C9 · Round-robin: who gets tasks 0 to 4 among NURSES'
+prompt: 'Round-robin: who gets tasks 0 to 4 among `NURSES`?'
+expected: "%w[ana ben cy ana ben]"
+answer: "(0...5).map { |i| NURSES[i % NURSES.size] }"

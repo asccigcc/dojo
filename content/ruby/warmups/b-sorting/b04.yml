@@ -1,0 +1,10 @@
+---
+slug: warmup-b04
+rep: B4
+set: B
+category: sorting
+position: 14
+title: B4 · Word counts sorted by count desc, then word asc
+prompt: Word counts sorted by count desc, then word asc.
+expected: '[["call", 3], ["sms", 2], ["email", 1]]'
+answer: WORDS.tally.sort_by { |w, n| [-n, w] }

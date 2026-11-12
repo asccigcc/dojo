@@ -1,0 +1,14 @@
+---
+slug: warmup-g06
+rep: G6
+set: G
+category: lists-and-hashes
+position: 66
+title: 'G6 · The trap: build a 3-row array with Array.new(3, []),...'
+prompt: 'The trap: build a 3-row array with `Array.new(3, [])`, then push `"x"` into row 0 only. What happened, and why?'
+note: All rows are ONE shared array, the same bug as `Hash.new([])`.
+expected: '[["x"], ["x"], ["x"]]'
+answer: |-
+  bad = Array.new(3, [])
+  bad[0] << "x"
+  bad

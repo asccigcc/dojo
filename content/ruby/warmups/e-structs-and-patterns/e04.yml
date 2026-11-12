@@ -1,0 +1,14 @@
+---
+slug: warmup-e04
+rep: E4
+set: E
+category: structs-and-patterns
+position: 44
+title: 'E4 · Merge PERIODS (overlapping AND adjacent: [1,10] +...'
+prompt: 'Merge `PERIODS` (overlapping AND adjacent: `[1,10]` + `[11,12]` merge).'
+expected: "[[1, 12], [15, 25]]"
+answer: |-
+  merged = PERIODS.sort.each_with_object([]) do |(s, e), acc|
+    if acc.any? && s <= acc.last[1] + 1 then acc.last[1] = [acc.last[1], e].max else acc << [s, e] end
+  end
+  merged

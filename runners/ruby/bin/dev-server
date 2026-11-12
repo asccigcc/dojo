@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Dev-only: runs the Ruby runner on 127.0.0.1:9292 WITHOUT the container
+# sandbox. Prefer `docker compose up`, which runs it hardened.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+echo "WARNING: NOT SANDBOXED. Starting the Dojo Ruby runner as $(whoami) on 127.0.0.1:${PORT:-9292}." >&2
+bundle install --quiet
+exec bundle exec puma --bind "tcp://127.0.0.1:${PORT:-9292}" --threads 2:2 config.ru

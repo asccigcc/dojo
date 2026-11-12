@@ -1,0 +1,10 @@
+---
+slug: warmup-c04
+rep: C4
+set: C
+category: enumerables
+position: 24
+title: C4 · Ids of metformin fills after day 3, in one pass (filter...
+prompt: Ids of metformin fills after day 3, in one pass (filter + map together).
+expected: "%w[rx1 rx5]"
+answer: FILLS.filter_map { |f| f[:id] if f[:drug] == "metformin" && f[:day] > 3 }

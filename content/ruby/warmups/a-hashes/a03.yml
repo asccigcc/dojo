@@ -1,0 +1,10 @@
+---
+slug: warmup-a03
+rep: A3
+set: A
+category: hashes
+position: 3
+title: A3 · Patient → list of their fill ids
+prompt: Patient → list of their fill ids.
+expected: '{ "ana" => %w[rx1 rx3], "ben" => %w[rx2 rx5], "cy" => %w[rx4] }'
+answer: FILLS.group_by { |f| f[:patient] }.transform_values { |fs| fs.map { |f| f[:id] } }

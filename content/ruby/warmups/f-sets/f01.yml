@@ -1,0 +1,13 @@
+---
+slug: warmup-f01
+rep: F1
+set: F
+category: sets
+position: 51
+title: F1 · Make a Set from WORDS
+prompt: Make a Set from `WORDS`. Is it equal to `Set["call", "sms", "email"]`? What's its size?
+returns: Return `[equal, size]`.
+expected: "[true, 3]"
+answer: |-
+  words = Set.new(WORDS)
+  [words == Set["call", "sms", "email"], words.size]

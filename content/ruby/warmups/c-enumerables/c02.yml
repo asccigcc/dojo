@@ -1,0 +1,10 @@
+---
+slug: warmup-c02
+rep: C2
+set: C
+category: enumerables
+position: 22
+title: C2 · How many neighbor gaps in TIMES are greater than 30
+prompt: How many neighbor gaps in `TIMES` are greater than 30?
+expected: '1'
+answer: TIMES.each_cons(2).count { |a, b| b - a > 30 }

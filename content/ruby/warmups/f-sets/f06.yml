@@ -1,0 +1,12 @@
+---
+slug: warmup-f06
+rep: F6
+set: F
+category: sets
+position: 56
+title: F6 · Patients on metformin AND on lisinopril (one operator)
+prompt: Patients on metformin AND on lisinopril (one operator).
+expected: Set["ben"]
+answer: |-
+  on_drug = ->(drug) { FILLS.select { |f| f[:drug] == drug }.map { |f| f[:patient] }.to_set }
+  on_drug.("metformin") & on_drug.("lisinopril")

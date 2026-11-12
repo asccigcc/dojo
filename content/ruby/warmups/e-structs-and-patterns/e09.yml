@@ -1,0 +1,15 @@
+---
+slug: warmup-e09
+rep: E9
+set: E
+category: structs-and-patterns
+position: 49
+title: 'E9 · Queue: start [1, 2], add 3 at the back, take from the front'
+prompt: 'Queue: start `[1, 2]`, add 3 at the back, take from the front.'
+returns: Return `[taken, queue]`.
+expected: "[1, [2, 3]]"
+answer: |-
+  queue = [1, 2]
+  queue.push(3)
+  first = queue.shift
+  [first, queue]

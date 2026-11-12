@@ -1,0 +1,12 @@
+---
+slug: warmup-b06
+rep: B6
+set: B
+category: sorting
+position: 16
+title: B6 · Id of the fill with the smallest day
+prompt: Id of the fill with the smallest day. Which one wins the tie, and why?
+returns: Return the id.
+note: 'The first one wins: `min_by` keeps the earliest element among ties, so `rx2` beats `rx4`.'
+expected: '"rx2"'
+answer: FILLS.min_by { |f| f[:day] }[:id]

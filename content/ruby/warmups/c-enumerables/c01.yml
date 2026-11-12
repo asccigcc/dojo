@@ -1,0 +1,10 @@
+---
+slug: warmup-c01
+rep: C1
+set: C
+category: enumerables
+position: 21
+title: C1 · Differences between neighbors in TIMES
+prompt: Differences between neighbors in `TIMES`.
+expected: "[10, 5, 5, 290]"
+answer: TIMES.each_cons(2).map { |a, b| b - a }

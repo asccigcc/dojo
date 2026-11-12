@@ -1,0 +1,10 @@
+---
+slug: warmup-d07
+rep: D7
+set: D
+category: strings
+position: 37
+title: D7 · Last 10 digits of "1-501-555-0100"
+prompt: Last 10 digits of `"1-501-555-0100"`.
+expected: '"5015550100"'
+answer: '"1-501-555-0100".gsub(/\D/, "")[-10..]'

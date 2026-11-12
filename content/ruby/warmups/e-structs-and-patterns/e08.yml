@@ -1,0 +1,15 @@
+---
+slug: warmup-e08
+rep: E8
+set: E
+category: structs-and-patterns
+position: 48
+title: 'E8 · Stack: push 1, 2, 3, then pop'
+prompt: 'Stack: push 1, 2, 3, then pop. What came out, what''s left, what''s on top?'
+returns: Return `[popped, stack, top]`.
+expected: "[3, [1, 2], 2]"
+answer: |-
+  stack = []
+  stack.push(1, 2, 3)
+  popped = stack.pop
+  [popped, stack, stack.last]

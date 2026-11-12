@@ -1,0 +1,12 @@
+---
+slug: warmup-g10
+rep: G10
+set: G
+category: lists-and-hashes
+position: 70
+title: G10 · Top 2 patients in totals by cents, as a hash
+prompt: Top 2 patients in `totals` by cents, as a hash. Then the single top patient as a pair.
+returns: Return `[top_two_hash, top_pair]`.
+setup: totals = FILLS.each_with_object(Hash.new(0)) { |f, h| h[f[:patient]] += f[:cents] }
+expected: '[{ "ana" => 2700, "ben" => 2000 }, ["ana", 2700]]'
+answer: "[totals.sort_by { |_, c| -c }.first(2).to_h, totals.max_by { |_, c| c }]"

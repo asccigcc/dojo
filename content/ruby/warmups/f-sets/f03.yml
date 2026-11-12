@@ -1,0 +1,13 @@
+---
+slug: warmup-f03
+rep: F3
+set: F
+category: sets
+position: 53
+title: F3 · Set of all patients in FILLS
+prompt: Set of all patients in `FILLS`. Does it include `"ana"`? `"dee"`?
+returns: Return `[includes_ana, includes_dee]`.
+expected: "[true, false]"
+answer: |-
+  patients = FILLS.map { |f| f[:patient] }.to_set
+  [patients.include?("ana"), patients.include?("dee")]

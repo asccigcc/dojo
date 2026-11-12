@@ -1,0 +1,13 @@
+---
+slug: warmup-a04
+rep: A4
+set: A
+category: hashes
+position: 4
+title: A4 · Drug → list of patients, using Hash.new { |h, k| h[k] = [] }
+prompt: Drug → list of patients, using `Hash.new { |h, k| h[k] = [] }`.
+expected: '{ "metformin" => %w[ana cy ben], "lisinopril" => %w[ben], "atorvastatin" => %w[ana] }'
+answer: |-
+  by_drug = Hash.new { |h, k| h[k] = [] }
+  FILLS.each { |f| by_drug[f[:drug]] << f[:patient] }
+  by_drug

@@ -1,0 +1,14 @@
+---
+slug: warmup-g01
+rep: G1
+set: G
+category: lists-and-hashes
+position: 61
+title: G1 · From a copy of NUMS, remove the element at index 2
+prompt: From a copy of `NUMS`, remove the element at index 2. What came out, and what's left?
+returns: Return `[removed, rest]`.
+expected: "[8, [5, 3, 1, 9, 2]]"
+answer: |-
+  a = NUMS.dup
+  removed = a.delete_at(2)
+  [removed, a]

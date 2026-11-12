@@ -1,0 +1,10 @@
+---
+slug: warmup-f05
+rep: F5
+set: F
+category: sets
+position: 55
+title: F5 · Everything in Set[1, 2, 3] OR Set[3, 4] (one operator)
+prompt: Everything in `Set[1, 2, 3]` OR `Set[3, 4]` (one operator).
+expected: Set[1, 2, 3, 4]
+answer: Set[1, 2, 3] | Set[3, 4]

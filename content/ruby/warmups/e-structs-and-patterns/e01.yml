@@ -1,0 +1,15 @@
+---
+slug: warmup-e01
+rep: E1
+set: E
+category: structs-and-patterns
+position: 41
+title: E1 · Define a Struct Rx(:id, :left), create ("rx1", 3),...
+prompt: Define a `Struct` `Rx(:id, :left)`, create `("rx1", 3)`, subtract 1 from `left`.
+returns: Return the new value of `left`.
+expected: '2'
+answer: |-
+  Rx = Struct.new(:id, :left)
+  r = Rx.new("rx1", 3)
+  r.left -= 1
+  r.left

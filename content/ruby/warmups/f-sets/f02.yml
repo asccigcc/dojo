@@ -1,0 +1,14 @@
+---
+slug: warmup-f02
+rep: F2
+set: F
+category: sets
+position: 52
+title: F2 · Start with Set["call"]
+prompt: Start with `Set["call"]`. Try adding `"call"` and then `"fax"` with the method that tells you **whether it was new**.
+returns: Return `[result_for_call, fax_was_new, final_size]`, where `fax_was_new` is `true` or `false` (e.g. `!set.add?("fax").nil?`).
+note: "`add?` returns `nil` when the value was already there and the set (truthy) when it was new."
+expected: "[nil, true, 2]"
+answer: |-
+  fresh = Set["call"]
+  [fresh.add?("call"), !fresh.add?("fax").nil?, fresh.size]

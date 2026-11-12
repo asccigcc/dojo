@@ -1,0 +1,7 @@
+---
+slug: '09-member-referrals'
+title: Member Referral Network
+category: sets
+position: 9
+code_path: work/09_member_referrals.rb
+test_path: tests/09_member_referrals_test.rb

@@ -1,0 +1,12 @@
+---
+slug: warmup-f08
+rep: F8
+set: F
+category: sets
+position: 58
+title: F8 · Remove duplicates from WORDS while keeping first-seen...
+prompt: Remove duplicates from `WORDS` while keeping first-seen order, using a Set (not `uniq`).
+expected: "%w[call sms email]"
+answer: |-
+  seen_words = Set.new
+  WORDS.select { |w| seen_words.add?(w) }

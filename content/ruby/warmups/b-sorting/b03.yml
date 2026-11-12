@@ -1,0 +1,10 @@
+---
+slug: warmup-b03
+rep: B3
+set: B
+category: sorting
+position: 13
+title: B3 · Fill ids sorted by day descending, ties by id ascending
+prompt: Fill ids sorted by day **descending**, ties by id **ascending**.
+expected: "%w[rx3 rx5 rx1 rx2 rx4]"
+answer: FILLS.sort_by { |f| [-f[:day], f[:id]] }.map { |f| f[:id] }

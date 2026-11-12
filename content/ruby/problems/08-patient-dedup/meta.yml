@@ -1,0 +1,7 @@
+---
+slug: '08-patient-dedup'
+title: Duplicate Patient Records
+category: grouping
+position: 8
+code_path: work/08_patient_dedup.rb
+test_path: tests/08_patient_dedup_test.rb

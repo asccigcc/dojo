@@ -1,0 +1,10 @@
+---
+slug: warmup-d06
+rep: D6
+set: D
+category: strings
+position: 36
+title: 'D6 · Normalize "Mary O''Neil ": lowercase, letters only'
+prompt: 'Normalize `"Mary O''Neil "`: lowercase, letters only.'
+expected: '"maryoneil"'
+answer: '"Mary O''Neil ".downcase.gsub(/[^a-z]/, "")'
