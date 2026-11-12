@@ -1,8 +1,12 @@
 # Omakase Ruby styling for Rails
 inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
-# Overwrite or add rules to create your own house style
-#
-# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
-# Layout/SpaceInsideArrayLiteralBrackets:
-#   Enabled: false
+AllCops:
+  Exclude:
+    # Exercise content (kit tests, reference solutions, warm-up data) is
+    # copied verbatim from the practice kit and is learner-facing material,
+    # not application code. Restyling it would drift from the source.
+    - "content/**/*"
+    - "node_modules/**/*"
+    - "vendor/**/*"
+    - "db/*schema.rb"
