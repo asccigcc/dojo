@@ -24,3 +24,37 @@ en:
     attributes:
       user:
         name: "Username"
+  runner:
+    unconfigured: "No %{language} runner is configured. Add one to config/runners.yml."
+    unreachable: "The %{language} runner could not be reached (%{error}). Is it running? Try `docker compose up`."
+    rejected: "The %{language} runner rejected the run (HTTP %{code}): %{body}"
+  statuses:
+    pending: "Queued"
+    running: "Running"
+    passed: "Passed"
+    failed: "Failed"
+    error: "Error"
+    timeout: "Timed out"
+  results_panel_component:
+    heading: "Results"
+    empty: "Press Run (or Cmd/Ctrl+Enter) to check your code."
+    running: "Running part %{part}..."
+    counts: "%{runs} runs, %{assertions} assertions, %{failures} failures, %{errors} errors, %{skips} skips"
+    duration: "%{ms} ms"
+    output: "Output"
+  parts_component:
+    current: "Part %{number} of %{total}"
+    locked:
+      one: "1 more part unlocks when this one passes."
+      other: "%{count} more parts unlock one at a time as you pass."
+    all_done: "All parts passed. Nice work."
+    warmup_done: "Passed. This rep comes back on your review schedule."
+  solution_gate_component:
+    heading: "Solution and notes"
+    reveal: "Reveal solution"
+    locked_hint: "Submit a real attempt first. No peeking before you try."
+  submission_history_component:
+    heading: "History"
+    empty: "No runs yet."
+    part: "part %{number}"
+    ago: "%{time} ago"

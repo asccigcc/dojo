@@ -1,0 +1,21 @@
+<section id="parts" class="space-y-3">
+  <% if page.exercise.problem? %>
+    <% page.visible_parts.each do |part| %>
+      <article class="card prose-dojo <%= current?(part) ? "ring-2 ring-indigo-200" : "opacity-80" %>">
+        <% if current?(part) %>
+          <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-indigo-600">
+            <%= t(".current", number: part.number, total: page.exercise.parts_count) %>
+          </p>
+        <% end %>
+        <%= markdown(part.description_md) %>
+      </article>
+    <% end %>
+    <% if page.locked_parts_count.positive? %>
+      <p class="text-sm text-slate-500"><%= t(".locked", count: page.locked_parts_count) %></p>
+    <% elsif all_done? %>
+      <p class="text-sm font-medium text-emerald-700"><%= t(".all_done") %></p>
+    <% end %>
+  <% elsif page.completed? %>
+    <p class="text-sm font-medium text-emerald-700"><%= t(".warmup_done") %></p>
+  <% end %>
+</section>

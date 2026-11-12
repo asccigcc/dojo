@@ -1,0 +1,13 @@
+<section id="solution_gate" class="card">
+  <div class="flex items-center justify-between gap-3">
+    <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500"><%= t(".heading") %></h2>
+    <% if page.solution_unlocked? %>
+      <%= link_to t(".reveal"), exercise_solution_path(page.exercise), class: "btn-secondary",
+            data: { turbo_frame: "solution" } %>
+    <% else %>
+      <button type="button" class="btn-secondary" disabled title="<%= t(".locked_hint") %>"><%= t(".reveal") %></button>
+    <% end %>
+  </div>
+  <% unless page.solution_unlocked? %><p class="mt-2 text-xs text-slate-500"><%= t(".locked_hint") %></p><% end %>
+  <%= turbo_frame_tag "solution" %>
+</section>

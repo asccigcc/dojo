@@ -1,0 +1,20 @@
+<section id="history" class="card">
+  <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500"><%= t(".heading") %></h2>
+  <% if submissions.empty? %>
+    <p class="text-sm text-slate-500"><%= t(".empty") %></p>
+  <% else %>
+    <ul class="divide-y divide-slate-100 text-sm">
+      <% submissions.each do |submission| %>
+        <li class="flex items-center justify-between py-1.5">
+          <span class="flex items-center gap-2">
+            <%= render StatusBadgeComponent.new(status: submission.status) %>
+            <span class="text-slate-500"><%= t(".part", number: submission.part_number) %></span>
+          </span>
+          <time class="text-xs text-slate-400" datetime="<%= submission.created_at.iso8601 %>">
+            <%= t(".ago", time: time_ago_in_words(submission.created_at)) %>
+          </time>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</section>

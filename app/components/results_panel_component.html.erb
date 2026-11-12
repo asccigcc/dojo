@@ -1,0 +1,32 @@
+<section id="results" class="card" aria-live="polite">
+  <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500"><%= t(".heading") %></h2>
+  <% if submission.nil? %>
+    <p class="text-sm text-slate-500"><%= t(".empty") %></p>
+  <% elsif invalid? %>
+    <p class="text-sm text-rose-700"><%= submission.errors.full_messages.to_sentence %></p>
+  <% elsif in_flight? %>
+    <p class="flex items-center gap-2 text-sm text-sky-800">
+      <span class="inline-block size-3 animate-spin rounded-full border-2 border-sky-600 border-t-transparent"></span>
+      <%= t(".running", part: submission.part_number) %>
+    </p>
+  <% else %>
+    <div class="mb-3 flex flex-wrap items-center gap-3 text-sm">
+      <%= render StatusBadgeComponent.new(status: submission.status) %>
+      <span class="text-slate-600"><%= counts %></span>
+      <% if submission.duration_ms %><span class="text-slate-400"><%= t(".duration", ms: submission.duration_ms) %></span><% end %>
+    </div>
+    <% failures.each do |failure| %>
+      <div class="mb-2 rounded-md border border-rose-200 bg-rose-50 p-2 text-sm">
+        <p class="font-mono font-semibold text-rose-900"><%= failure["name"] %></p>
+        <pre class="whitespace-pre-wrap font-mono text-xs text-rose-800"><%= failure["message"] %></pre>
+        <% if failure["location"].present? %><p class="font-mono text-xs text-rose-500"><%= failure["location"] %></p><% end %>
+      </div>
+    <% end %>
+    <% if submission.output.present? %>
+      <details class="mt-2" <%= "open" unless submission.passed? %>>
+        <summary class="cursor-pointer text-sm text-slate-600"><%= t(".output") %></summary>
+        <pre class="mt-1 max-h-64 overflow-auto rounded-md bg-slate-900 p-2 font-mono text-xs text-slate-100"><%= submission.output %></pre>
+      </details>
+    <% end %>
+  <% end %>
+</section>

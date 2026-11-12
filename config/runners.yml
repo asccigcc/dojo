@@ -1,0 +1,7 @@
+# One entry per language. Every runner serves the same HTTP API (POST /run),
+# so adding a language is a new runner container plus one entry here, e.g.
+#   python:
+#     url: (read RUNNER_PYTHON_URL the same way)
+shared:
+  ruby:
+    url: <%= ENV.fetch("RUNNER_RUBY_URL", "http://127.0.0.1:9292") %>
