@@ -9,7 +9,7 @@ RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential && \
     rm -rf /var/lib/apt/lists/*
 WORKDIR /app
-ENV BUNDLE_DEPLOYMENT=1 BUNDLE_WITHOUT=development:test
+ENV BUNDLE_DEPLOYMENT=1 BUNDLE_PATH=/usr/local/bundle BUNDLE_WITHOUT=development:test
 COPY Gemfile Gemfile.lock ./
 RUN bundle install && rm -rf /usr/local/bundle/cache
 
@@ -20,7 +20,7 @@ COPY --from=build /usr/local/bundle /usr/local/bundle
 COPY . /app
 RUN useradd --system --uid 10001 --no-create-home --shell /usr/sbin/nologin runner && \
     chmod -R a-w /app
-ENV DOJO_SANDBOXED=1 BUNDLE_DEPLOYMENT=1 BUNDLE_WITHOUT=development:test
+ENV DOJO_SANDBOXED=1 RACK_ENV=production BUNDLE_DEPLOYMENT=1 BUNDLE_PATH=/usr/local/bundle BUNDLE_WITHOUT=development:test
 USER 10001:10001
 EXPOSE 9292
 CMD ["bundle", "exec", "puma", "--bind", "tcp://0.0.0.0:9292", "--threads", "2:2", "config.ru"]
