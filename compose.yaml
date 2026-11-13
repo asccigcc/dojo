@@ -1,0 +1,60 @@
+# Dojo: `docker compose up --build`, then open http://127.0.0.1:3000
+name: dojo
+
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:3000:3000" # localhost only
+    environment:
+      RUNNER_RUBY_URL: http://runner-ruby:9292
+      SOLID_QUEUE_IN_PUMA: "1"
+      # A future Python runner is one more service plus:
+      # RUNNER_PYTHON_URL: http://runner-python:9292
+    volumes:
+      - dojo_storage:/rails/storage # SQLite: app, Solid Queue, Solid Cable
+    depends_on:
+      runner-ruby:
+        condition: service_healthy
+    networks: [default, sandbox]
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:3000/up"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 20s
+    restart: unless-stopped
+
+  runner-ruby:
+    build: ./runners/ruby
+    # No `ports:`: reachable only from `web` over the internal network.
+    networks: [sandbox]
+    user: "10001:10001"
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777,noexec,nosuid,nodev
+    cap_drop: [ALL]
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 512m
+    memswap_limit: 512m
+    cpus: 1.0
+    pids_limit: 128
+    init: true # reaps orphaned processes left by killed runs
+    environment:
+      DOJO_MAX_PROCS: "64"
+      DOJO_MAX_MEMORY_MB: "384"
+    healthcheck:
+      test: ["CMD", "ruby", "-rnet/http", "-e", "exit Net::HTTP.get_response(URI('http://127.0.0.1:9292/health')).is_a?(Net::HTTPSuccess)"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+      start_period: 5s
+    restart: unless-stopped
+
+networks:
+  sandbox:
+    internal: true # no route to the internet or the host
+
+volumes:
+  dojo_storage:

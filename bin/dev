@@ -1,2 +1,13 @@
-#!/usr/bin/env ruby
-exec "./bin/rails", "server", *ARGV
+#!/usr/bin/env bash
+# Local development without Docker: Vite dev server, Rails (with Solid Queue
+# in Puma), and the Ruby runner in NOT SANDBOXED dev mode.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+
+echo "WARNING: bin/dev runs learner code UNSANDBOXED on this machine. Use 'docker compose up' for the hardened runner." >&2
+
+trap 'kill 0' INT TERM EXIT
+runners/ruby/bin/dev-server &
+bin/vite dev &
+SOLID_QUEUE_IN_PUMA=1 bin/rails server -b 127.0.0.1 -p "${PORT:-3000}" &
+wait

@@ -1,6 +1,7 @@
 # Value object for one runner verdict, whatever the language.
 class RunResult
-  OUTPUT_LIMIT = 64.kilobytes
+  # Above the runner's 64 KB-per-stream cap so its truncation marker survives.
+  OUTPUT_LIMIT = 160.kilobytes
   COUNT_KEYS = { runs: "runs", assertions: "assertions", failures_count: "failures",
                  errors_count: "errors", skips: "skips" }.freeze
 

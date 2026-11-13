@@ -1,0 +1,19 @@
+#!/bin/bash -e
+# Boot steps for the web container: a persistent secret, then schema and
+# content, so a fresh `docker compose up` is ready to practice.
+
+if [ -z "${SECRET_KEY_BASE:-}" ]; then
+  key_file=/rails/storage/.secret_key_base
+  if [ ! -s "$key_file" ]; then
+    (umask 077 && ruby -rsecurerandom -e 'print SecureRandom.hex(64)' > "$key_file")
+  fi
+  SECRET_KEY_BASE="$(cat "$key_file")"
+  export SECRET_KEY_BASE
+fi
+
+if [ "$1" == "./bin/rails" ] && [ "$2" == "server" ]; then
+  ./bin/rails db:prepare
+  ./bin/rails dojo:import
+fi
+
+exec "$@"
