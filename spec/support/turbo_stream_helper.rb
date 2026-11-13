@@ -9,5 +9,5 @@ end
 
 RSpec.configure do |config|
   config.include TurboStreamHelper
-  config.before { ActionCable.server.pubsub.clear }
+  config.before { ActionCable.server.pubsub.try(:clear) }
 end

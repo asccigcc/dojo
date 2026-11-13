@@ -33,4 +33,7 @@ end
 
 group :test do
   gem "webmock"
+  # System specs drive the installed Google Chrome over CDP (no chromedriver).
+  gem "capybara"
+  gem "cuprite"
 end
