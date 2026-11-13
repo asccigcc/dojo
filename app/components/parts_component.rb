@@ -9,6 +9,8 @@ class PartsComponent < ApplicationComponent
 
   attr_reader :page
 
+  def version = page.latest_submission&.stream_version || 0
+
   def current?(part) = part.number == page.current_part
 
   def all_done? = page.completed? && page.locked_parts_count.zero?

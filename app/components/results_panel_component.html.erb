@@ -1,4 +1,4 @@
-<section id="results" class="card" aria-live="polite">
+<section id="results" class="card" aria-live="polite" <%= stream_version_attribute(invalid? ? nil : version) %>>
   <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500"><%= t(".heading") %></h2>
   <% if submission.nil? %>
     <p class="text-sm text-slate-500"><%= t(".empty") %></p>

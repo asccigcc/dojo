@@ -1,4 +1,4 @@
-<section id="parts" class="space-y-3">
+<section id="parts" class="space-y-3" <%= stream_version_attribute(version) %>>
   <% if page.exercise.problem? %>
     <% page.visible_parts.each do |part| %>
       <article class="card prose-dojo <%= current?(part) ? "ring-2 ring-indigo-200" : "opacity-80" %>">

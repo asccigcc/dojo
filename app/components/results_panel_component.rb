@@ -19,4 +19,6 @@ class ResultsPanelComponent < ApplicationComponent
   def failures = Array(submission&.failure_details)
 
   def invalid? = submission && !submission.persisted?
+
+  def version = submission&.persisted? ? submission.stream_version : 0
 end

@@ -9,4 +9,6 @@ class SolutionGateComponent < ApplicationComponent
   private
 
   attr_reader :page
+
+  def version = page.latest_submission&.stream_version || 0
 end

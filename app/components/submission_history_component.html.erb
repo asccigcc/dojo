@@ -1,4 +1,4 @@
-<section id="history" class="card">
+<section id="history" class="card" <%= stream_version_attribute(version) %>>
   <h2 class="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500"><%= t(".heading") %></h2>
   <% if submissions.empty? %>
     <p class="text-sm text-slate-500"><%= t(".empty") %></p>

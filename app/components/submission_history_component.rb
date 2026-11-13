@@ -8,4 +8,6 @@ class SubmissionHistoryComponent < ApplicationComponent
   private
 
   attr_reader :submissions
+
+  def version = submissions.first&.stream_version || 0
 end
