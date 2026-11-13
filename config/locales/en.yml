@@ -70,8 +70,6 @@ en:
       prelude: Data available to your code
       warmup_rules: Your code runs after this data. The value of your last expression is your answer, compared with == to the expected value.
       code_label: Your code
-      runs_part: Run checks parts 1 to %{number}.
-      runs_warmup: Run checks your last expression.
       reset: Reset to starter
       run: Run
       run_shortcut: Cmd/Ctrl+Enter
@@ -106,3 +104,6 @@ en:
       new: 'New: you have not tried this one yet.'
       due: Due for review.
       in_progress: In progress today. Keep going.
+  run_scope_component:
+    runs_part: Run checks parts 1 to %{number}.
+    runs_warmup: Run checks your last expression.

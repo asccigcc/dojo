@@ -30,9 +30,7 @@
             class: "w-full rounded-md border border-slate-300 p-2 font-mono text-sm",
             data: { editor_target: "input" }, aria: { label: t(".code_label") } %>
       <div class="flex items-center justify-between">
-        <span class="text-xs text-slate-500">
-          <%= exercise.problem? ? t(".runs_part", number: @page.current_part) : t(".runs_warmup") %>
-        </span>
+        <%= render RunScopeComponent.new(page: @page) %>
         <div class="flex gap-2">
           <button type="button" class="btn-secondary" data-action="editor#reset"><%= t(".reset") %></button>
           <%= form.button t(".run"), type: "submit", class: "btn-primary", title: t(".run_shortcut") %>

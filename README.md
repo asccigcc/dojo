@@ -40,6 +40,31 @@ bin/rubocop
 ruby script/smoke_test.rb http://127.0.0.1:3000   # end-to-end against a running app, incl. hostile snippets
 ```
 
+### Browser (system) specs
+
+`spec/system` drives a real headless Chrome through Capybara + Cuprite (Chrome
+DevTools Protocol, so no chromedriver or Selenium). They run as part of
+`bundle exec rspec`, or on their own:
+
+```sh
+bundle exec rspec spec/system
+HEADFUL=1 bundle exec rspec spec/system   # watch the browser
+```
+
+**Prerequisite:** Google Chrome or Chromium installed. Ferrum finds
+`/Applications/Google Chrome.app` on macOS, and `google-chrome`/`chromium` on
+Linux. Set `BROWSER_PATH=/path/to/chrome` to use another binary.
+
+The specs are hermetic, so no runner is needed:
+
+- A scripted runner double decides pass or fail from the code typed in.
+  Code containing `solved` passes problems, and `WORDS.tally` passes warm-ups.
+- Jobs run inline.
+- The specs switch Action Cable to the in-process `async` adapter, so Turbo
+  Stream broadcasts really reach the open page. The specs check that pages
+  update without a reload.
+- The first run builds the Vite test bundle into `public/vite-test`.
+
 ## How practice works
 
 - **Warm-ups** (70 reps, Sets A to G): your code runs after the shared data

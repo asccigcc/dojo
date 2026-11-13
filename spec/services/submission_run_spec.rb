@@ -32,6 +32,6 @@ RSpec.describe SubmissionRun do
 
     targets = turbo_stream_targets(user, exercise)
     expect(targets.first).to eq("results")
-    expect(targets).to include("parts", "solution_gate", "history")
+    expect(targets).to include("parts", "run_scope", "solution_gate", "history")
   end
 end

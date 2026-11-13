@@ -14,6 +14,7 @@ class SubmissionBroadcaster
 
     page = ExercisePage.new(@submission.user, @submission.exercise)
     replace("parts", PartsComponent.new(page:))
+    replace("run_scope", RunScopeComponent.new(page:))
     replace("solution_gate", SolutionGateComponent.new(page:))
     replace("history", SubmissionHistoryComponent.new(submissions: page.submissions))
   end
